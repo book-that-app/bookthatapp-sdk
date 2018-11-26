@@ -37,76 +37,76 @@ The above command returns JSON structured like this:
 
 ## API
 
-<div id="toc" class="toc-list-h1">          
+<ul>          
           <li>
-            <a href="#products" class="toc-h1 toc-link" data-title="Products">Products</a>
-              <ul class="toc-list-h2" style="display: none;">
+            <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#products" data-title="Products">Products</a>
+              <ul style="display: none;">
                   <li>
-                    <a href="#get-all-products" class="toc-h2 toc-link" data-title="Get All Products">Get All Products</a>
+                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#get-all-products" data-title="Get All Products">Get All Products</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-product" class="toc-h2 toc-link" data-title="Get a Specific Product">Get a Specific Product</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#availability" class="toc-h1 toc-link" data-title="Availability">Availability</a>
-              <ul class="toc-list-h2" style="display: none;">
-                  <li>
-                    <a href="#frames" class="toc-h2 toc-link" data-title="Frames">Frames</a>
+                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#get-a-specific-product" data-title="Get a Specific Product">Get a Specific Product</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#bookings" class="toc-h1 toc-link active-parent" data-title="Bookings">Bookings</a>
+            <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#availability" data-title="Availability">Availability</a>
+              <ul style="display: none;">
+                  <li>
+                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#frames" data-title="Frames">Frames</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#bookings" class="toc-h1 toc-link active-parent" data-title="Bookings">Bookings</a>
               <ul class="toc-list-h2 active" style="display: block;">
                   <li>
-                    <a href="#reservations" class="toc-h2 toc-link" data-title="Reservations">Reservations</a>
+                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#reservations" data-title="Reservations">Reservations</a>
                   </li>
                   <li>
-                    <a href="#get-a-reservation" class="toc-h2 toc-link" data-title="Get a Reservation">Get a Reservation</a>
+                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#get-a-reservation" data-title="Get a Reservation">Get a Reservation</a>
                   </li>
                   <li>
-                    <a href="#create-a-reservation" class="toc-h2 toc-link" data-title="Create a Reservation">Create a Reservation</a>
+                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#create-a-reservation" data-title="Create a Reservation">Create a Reservation</a>
                   </li>
                   <li>
-                    <a href="#confirm-a-reservation" class="toc-h2 toc-link" data-title="Confirm a Reservation">Confirm a Reservation</a>
+                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#confirm-a-reservation" data-title="Confirm a Reservation">Confirm a Reservation</a>
                   </li>
                   <li>
-                    <a href="#bookings-2" class="toc-h2 toc-link" data-title="Bookings">Bookings</a>
+                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#bookings-2" data-title="Bookings">Bookings</a>
                   </li>
                   <li>
-                    <a href="#get-a-booking" class="toc-h2 toc-link" data-title="Get a Booking">Get a Booking</a>
+                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#get-a-booking" data-title="Get a Booking">Get a Booking</a>
                   </li>
                   <li>
-                    <a href="#delete-a-booking" class="toc-h2 toc-link" data-title="Delete a Booking">Delete a Booking</a>
+                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#delete-a-booking" data-title="Delete a Booking">Delete a Booking</a>
                   </li>
                   <li>
-                    <a href="#blackouts" class="toc-h2 toc-link" data-title="Blackouts">Blackouts</a>
+                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#blackouts" data-title="Blackouts">Blackouts</a>
                   </li>
                   <li>
-                    <a href="#create-a-blackout" class="toc-h2 toc-link active" data-title="Create a Blackout">Create a Blackout</a>
+                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#create-a-blackout" class="toc-h2 toc-link active" data-title="Create a Blackout">Create a Blackout</a>
                   </li>
                   <li>
-                    <a href="#get-a-blackout" class="toc-h2 toc-link" data-title="Get a Blackout">Get a Blackout</a>
+                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#get-a-blackout" data-title="Get a Blackout">Get a Blackout</a>
                   </li>
                   <li>
-                    <a href="#delete-a-blackout" class="toc-h2 toc-link" data-title="Delete a Blackout">Delete a Blackout</a>
+                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#delete-a-blackout" data-title="Delete a Blackout">Delete a Blackout</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#search" class="toc-h1 toc-link" data-title="Search">Search</a>
-              <ul class="toc-list-h2" style="display: none;">
+            <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#search" data-title="Search">Search</a>
+              <ul style="display: none;">
                   <li>
-                    <a href="#get-products" class="toc-h2 toc-link" data-title="Get Products">Get Products</a>
+                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#get-products" data-title="Get Products">Get Products</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#errors" data-title="Errors">Errors</a>
           </li>
-      </div>
+      </ul>
 
 ## Errors
 
