@@ -1,6 +1,6 @@
 {
   "name": "bookthatapp-sdk",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "The SDK is intended to be used by customers to access BookThatApp from the browser or node.",
   "main": "/src/index.js",
   "repository": {
@@ -11,20 +11,18 @@
     "bookthatapp",
     "sdk"
   ],
-  "licenses": "MIT",
+  "license": "MIT",
   "author": {
     "name": "Zetya",
     "email": "info@zetya.com",
     "url": "https://zetya.com"
   },
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Zetya/bookthatapp-sdk/issues"
   },
   "homepage": "https://github.com/Zetya/bookthatapp-sdk#readme",
   "dependencies": {
     "axios": "^0.18.0",
-    "base-64": "^0.1.0",
-    "es6-promise": "^4.2.5"
+    "base-64": "^0.1.0"
   }
 }
