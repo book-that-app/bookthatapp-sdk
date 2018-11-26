@@ -479,4 +479,4 @@ function _BookThatApp() {
 }
 
 let BookThatApp = new _BookThatApp();
-export default BookThatApp;
+module.exports = BookThatApp;
