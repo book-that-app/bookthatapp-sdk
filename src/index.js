@@ -7,6 +7,7 @@
  * Copyright 2017 Zetya, Inc.
  */
 
+require('es6-promise').polyfill();
 import axios from 'axios'
 import base64 from 'base-64'
 
