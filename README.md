@@ -5,7 +5,15 @@ Welcome to the BookThatApp API! You can use our API to access BookThatApp API en
 We have language bindings in cURL and Javascript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
 
-[Bookthatapp api doc](https://www.bookthatapp.com/docs/api/v1/index.html)
+[Bookthatapp API doc](https://www.bookthatapp.com/docs/api/v1/index.html)
+
+
+## Installation
+
+```
+yarn add bookthatapp-sdk
+npm install bookthatapp-sdk
+```
 
 
 ## Authorization
