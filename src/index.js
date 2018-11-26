@@ -10,7 +10,7 @@
 import axios from 'axios'
 import base64 from 'base-64'
 
-function _BookThatApp() {
+function BookThatApp() {
     /**
      * Auth variables for login gated API methods
      *
@@ -478,5 +478,4 @@ function _BookThatApp() {
     return BTA;
 }
 
-let BookThatApp = new _BookThatApp();
-module.exports = BookThatApp;
+export default new BookThatApp();
