@@ -357,7 +357,7 @@ function BookThatApp() {
      */
     BTA.getBlackouts = function(data) {
         return BTA.makeRequest({
-            url: '/blackoutss/',
+            url: '/blackouts',
             method: 'get',
             params: data
         });
