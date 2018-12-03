@@ -270,7 +270,7 @@ function BookThatApp() {
         delete data.id;
 
         return BTA.makeRequest({
-            url: '/reservations/' + data.slug,
+            url: '/reservations/' + slug,
             method: 'delete'
         });
     };
@@ -310,7 +310,7 @@ function BookThatApp() {
      */
     BTA.createBooking = function(data) {
         return BTA.makeRequest({
-            url: '/bookings/new',
+            url: '/bookings',
             method: 'post',
             data: data
         });
@@ -344,7 +344,7 @@ function BookThatApp() {
         delete data.id;
 
         return BTA.makeRequest({
-            url: '/bookings/' + data.slug,
+            url: '/bookings/' + slug,
             method: 'delete'
         });
     };
@@ -384,7 +384,7 @@ function BookThatApp() {
      */
     BTA.createBlackout = function(data) {
         return BTA.makeRequest({
-            url: '/blackout/new',
+            url: '/blackout',
             method: 'post',
             data: data
         });
@@ -418,7 +418,7 @@ function BookThatApp() {
         delete data.id;
 
         return BTA.makeRequest({
-            url: '/blackout/' + data.slug,
+            url: '/blackout/' + slug,
             method: 'delete'
         });
     };
