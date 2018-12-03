@@ -357,7 +357,7 @@ function BookThatApp() {
      */
     BTA.getBlackouts = function(data) {
         return BTA.makeRequest({
-            url: '/blackouts/',
+            url: '/blackoutss/',
             method: 'get',
             params: data
         });
@@ -371,7 +371,7 @@ function BookThatApp() {
      */
     BTA.getBlackout = function(data) {
         return BTA.makeRequest({
-            url: '/blackout/' + data.id,
+            url: '/blackouts/' + data.id,
             method: 'get',
             params: data
         });
@@ -384,7 +384,7 @@ function BookThatApp() {
      */
     BTA.createBlackout = function(data) {
         return BTA.makeRequest({
-            url: '/blackout',
+            url: '/blackouts',
             method: 'post',
             data: data
         });
@@ -401,7 +401,7 @@ function BookThatApp() {
         delete data.id;
 
         return BTA.makeRequest({
-            url: '/blackout/' + slug,
+            url: '/blackouts/' + slug,
             method: 'put',
             data: data
         });
@@ -418,7 +418,7 @@ function BookThatApp() {
         delete data.id;
 
         return BTA.makeRequest({
-            url: '/blackout/' + slug,
+            url: '/blackouts/' + slug,
             method: 'delete'
         });
     };
