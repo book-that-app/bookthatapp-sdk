@@ -475,7 +475,15 @@ function BookThatApp() {
         });
     }
 
-    return BTA;
+    BTA.getBlocks = function (data) {
+        return BTA.makeRequest({
+            url: '/blocks',
+            method: 'get',
+            params: data
+        });
+    }
+
+  return BTA;
 }
 
 export default new BookThatApp();
