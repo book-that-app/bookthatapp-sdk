@@ -4,9 +4,8 @@ Welcome to the BookThatApp API! You can use our API to access BookThatApp API en
 
 We have language bindings in cURL and Javascript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-
 [Bookthatapp API doc](https://www.bookthatapp.com/docs/api/v1/index.html)
-
+[bookthatapp-sdk-example](https://github.com/Zetya/bookthatapp-sdk-example)
 
 ## Installation
 
@@ -15,155 +14,36 @@ yarn add bookthatapp-sdk
 npm install bookthatapp-sdk
 ```
 
+## Build
+
+```
+yarn build
+```
 
 ## Authorization
 
-BookThatApp uses the shop's API key and secret to allow access to the API. The API key and secret is available in the settings menu in BookThatApp admin.
+To access the API a token (JWT) must be provided. This is created using [Knock](https://github.com/nsarno/knock).
 
-Using the /auth endpoint you can generate an authorization token. BookThatApp expects for this token to be included in all other API requests to the server in a header that looks like the following:
+##Contributing
+If you want to contribute to a project and make it better, your help is very welcome. Contributing is also a great way to learn more about social coding on Github, new technologies and and their ecosystems and how to make constructive, helpful bug reports, feature requests and the noblest of all contributions: a good, clean pull request.
 
-Authorization: Bearer your_auth_jwt_token
+How to make a clean pull request
+Look for a project's contribution instructions. If there are any, follow them.
 
-**You must replace your_auth_jwt_token with the token generated via the auth endpoint**
+* Create a personal fork of the project on Github.
+* Clone the fork on your local machine. Your remote repo on Github is called origin.
+* Add the original repository as a remote called upstream.
+* If you created your fork a while ago be sure to pull upstream changes into your local repository.
+* Create a new branch to work on! Branch from develop if it exists, else from master.
+* Implement/fix your feature, comment your code.
+* Follow the code style of the project, including indentation.
+* If the project has tests run them!
+* Write or adapt tests as needed.
+* Add or change the documentation as needed.
+* Squash your commits into a single commit with git's [interactive](https://help.github.com/articles/about-git-rebase/) rebase. Create a new branch if necessary.
+* Push your branch to your fork on Github, the remote origin.
+* From your fork open a pull request in the correct branch. Target the project's develop branch if there is one, else go for master!
+* If the maintainer requests further changes just push them to your branch. The PR will be updated automatically.
 
-```
-To get an API authentication token, pass the shop's API key and secret:
-
-const BookThatApp = require('BookThatApp');
-
-let api = BookThatApp.auth({key: 'key',password: 'password'});
-Make sure to replace your_key and your_secret with your shop's corresponding values.
-
-BookThatApp uses the shop's API key and secret to allow access to the API. The API key and secret is available in the settings menu in BookThatApp admin.
-
-The above command returns JSON structured like this:
-
-{
-  "jwt": "an.auth.token"
-}
-```
-
-## API
-
-<ul>          
-          <li>
-            <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#products" data-title="Products">Products</a>
-              <ul style="display: none;">
-                  <li>
-                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#get-all-products" data-title="Get All Products">Get All Products</a>
-                  </li>
-                  <li>
-                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#get-a-specific-product" data-title="Get a Specific Product">Get a Specific Product</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#availability" data-title="Availability">Availability</a>
-              <ul style="display: none;">
-                  <li>
-                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#frames" data-title="Frames">Frames</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#bookings" class="toc-h1 toc-link active-parent" data-title="Bookings">Bookings</a>
-              <ul class="toc-list-h2 active" style="display: block;">
-                  <li>
-                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#reservations" data-title="Reservations">Reservations</a>
-                  </li>
-                  <li>
-                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#get-a-reservation" data-title="Get a Reservation">Get a Reservation</a>
-                  </li>
-                  <li>
-                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#create-a-reservation" data-title="Create a Reservation">Create a Reservation</a>
-                  </li>
-                  <li>
-                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#confirm-a-reservation" data-title="Confirm a Reservation">Confirm a Reservation</a>
-                  </li>
-                  <li>
-                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#bookings-2" data-title="Bookings">Bookings</a>
-                  </li>
-                  <li>
-                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#get-a-booking" data-title="Get a Booking">Get a Booking</a>
-                  </li>
-                  <li>
-                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#delete-a-booking" data-title="Delete a Booking">Delete a Booking</a>
-                  </li>
-                  <li>
-                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#blackouts" data-title="Blackouts">Blackouts</a>
-                  </li>
-                  <li>
-                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#create-a-blackout" class="toc-h2 toc-link active" data-title="Create a Blackout">Create a Blackout</a>
-                  </li>
-                  <li>
-                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#get-a-blackout" data-title="Get a Blackout">Get a Blackout</a>
-                  </li>
-                  <li>
-                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#delete-a-blackout" data-title="Delete a Blackout">Delete a Blackout</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#search" data-title="Search">Search</a>
-              <ul style="display: none;">
-                  <li>
-                    <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#get-products" data-title="Get Products">Get Products</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="https://www.bookthatapp.com/docs/api/v1/index.html?javascript#errors" data-title="Errors">Errors</a>
-          </li>
-      </ul>
-
-## Errors
-
-<p>The BookThatApp API uses the following error codes:</p>
- 
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request.</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- You are not allowed to view this resource.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified resource could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a resource with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn't json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The resource requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You're requesting too many resources! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We're temporarily offline for maintenance. Please try again later.</td>
-</tr>
-</tbody></table>
+Once the pull request is approved and merged you can pull the changes from upstream to your local repo and delete your extra branch(es).
+And last but not least: Always write your commit messages in the present tense. Your commit message should describe what the commit, when applied, does to the code – not what you did to the code.
