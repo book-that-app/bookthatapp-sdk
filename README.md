@@ -6,7 +6,7 @@ We have language bindings in cURL and Javascript! You can view code examples in 
 
 [Bookthatapp API doc](https://www.bookthatapp.com/docs/api/v1/index.html)
 
-[bookthatapp-sdk-example](https://github.com/Zetya/bookthatapp-sdk-example)
+[Bookthatapp SDK Example](https://github.com/Zetya/bookthatapp-sdk-example)
 
 ## Installation
 
