@@ -459,22 +459,6 @@ function BookThatApp() {
         });
     };
 
-    BTA.search = function(data) {
-        return BTA.makeRequest({
-            url: '/search/',
-            method: 'get',
-            params: data
-        });
-    }
-
-    BTA.getProductInfor = function (data) {
-        return BTA.makeRequest({
-            url: '/frames/appointment_timeslot',
-            method: 'get',
-            params: data
-        });
-    }
-
     BTA.getBlocks = function (data) {
         return BTA.makeRequest({
             url: '/blocks',
@@ -483,7 +467,15 @@ function BookThatApp() {
         });
     }
 
-  return BTA;
+    BTA.search = function(data) {
+        return BTA.makeRequest({
+            url: '/search/',
+            method: 'get',
+            params: data
+        });
+    }
+
+    return BTA;
 }
 
 export default new BookThatApp();
