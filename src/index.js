@@ -467,6 +467,14 @@ function BookThatApp() {
         });
     }
 
+    BTA.getBlocks = function (data) {
+        return BTA.makeRequest({
+            url: '/blocks',
+            method: 'get',
+            params: data
+        });
+    }
+
     BTA.search = function(data) {
         return BTA.makeRequest({
             url: '/search/',
@@ -475,7 +483,74 @@ function BookThatApp() {
         });
     }
 
-    return BTA;
+  BTA.getLocationInventories = function(data) {
+    return BTA.makeRequest({
+      url: `/variants/${data.variantId}/location_inventories`,
+      method: 'get'
+    });
+  };
+
+  /**
+   * Get specific blackout
+   *
+   * @type {Function}
+   * @return {Promise}
+   */
+  BTA.getLocationInventory = function(data) {
+    return BTA.makeRequest({
+      url: '/location_inventories/' + data.id,
+      method: 'get',
+      params: data
+    });
+  };
+
+  /**
+   * Create a new blackout
+   * @type {Function}
+   * @return {Promise}
+   */
+  BTA.createLocationInventory = function(data) {
+    return BTA.makeRequest({
+      url: '/location_inventories',
+      method: 'post',
+      data: data
+    });
+  };
+
+  /**
+   * Update a blackout
+   *
+   * @type {Function}
+   * @return {Promise}
+   */
+  BTA.updateLocationInventory = function(data) {
+    var slug = data.id;
+    delete data.id;
+
+    return BTA.makeRequest({
+      url: '/location_inventories/' + slug,
+      method: 'put',
+      data: data
+    });
+  };
+
+  /**
+   * Delete a blackout
+   *
+   * @type {Function}
+   * @return {Promise}
+   */
+  BTA.deleteLocationInventory = function(data) {
+    var slug = data.id;
+    delete data.id;
+
+    return BTA.makeRequest({
+      url: '/location_inventories/' + slug,
+      method: 'delete'
+    });
+  };
+
+  return BTA;
 }
 
 export default new BookThatApp();
