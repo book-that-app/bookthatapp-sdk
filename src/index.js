@@ -519,6 +519,12 @@ function BookThatApp() {
     });
   };
 
+  BTA.getLocations = function() {
+    return BTA.makeRequest({
+      url: '/locations'
+    });
+  };
+
   return BTA;
 }
 
