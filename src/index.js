@@ -483,32 +483,13 @@ function BookThatApp() {
     });
   }
 
-  BTA.getLocationInventories = function(data) {
+  BTA.getLocationInventories = function() {
     return BTA.makeRequest({
-      url: `/variants/${data.variantId}/location_inventories`,
+      url: `/location_inventories`,
       method: 'get'
     });
   };
 
-  /**
-   * Get specific blackout
-   *
-   * @type {Function}
-   * @return {Promise}
-   */
-  BTA.getLocationInventory = function(data) {
-    return BTA.makeRequest({
-      url: '/location_inventories/' + data.id,
-      method: 'get',
-      params: data
-    });
-  };
-
-  /**
-   * Create a new blackout
-   * @type {Function}
-   * @return {Promise}
-   */
   BTA.createLocationInventory = function(data) {
     return BTA.makeRequest({
       url: '/location_inventories',
@@ -517,12 +498,6 @@ function BookThatApp() {
     });
   };
 
-  /**
-   * Update a blackout
-   *
-   * @type {Function}
-   * @return {Promise}
-   */
   BTA.updateLocationInventory = function(data) {
     var slug = data.id;
     delete data.id;
@@ -534,12 +509,6 @@ function BookThatApp() {
     });
   };
 
-  /**
-   * Delete a blackout
-   *
-   * @type {Function}
-   * @return {Promise}
-   */
   BTA.deleteLocationInventory = function(data) {
     var slug = data.id;
     delete data.id;
