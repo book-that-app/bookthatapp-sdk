@@ -490,32 +490,11 @@ function BookThatApp() {
     });
   };
 
-  BTA.createLocationInventory = function(data) {
+  BTA.updateLocationInventories = function(data) {
     return BTA.makeRequest({
       url: '/location_inventories',
-      method: 'post',
-      data: data
-    });
-  };
-
-  BTA.updateLocationInventory = function(data) {
-    var slug = data.id;
-    delete data.id;
-
-    return BTA.makeRequest({
-      url: '/location_inventories/' + slug,
       method: 'put',
       data: data
-    });
-  };
-
-  BTA.deleteLocationInventory = function(data) {
-    var slug = data.id;
-    delete data.id;
-
-    return BTA.makeRequest({
-      url: '/location_inventories/' + slug,
-      method: 'delete'
     });
   };
 
