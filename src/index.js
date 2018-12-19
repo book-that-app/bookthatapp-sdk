@@ -483,10 +483,11 @@ function BookThatApp() {
     });
   }
 
-  BTA.getLocationInventories = function() {
+  BTA.getLocationInventories = function(data) {
     return BTA.makeRequest({
       url: `/location_inventories`,
-      method: 'get'
+      method: 'get',
+      params: data
     });
   };
 
