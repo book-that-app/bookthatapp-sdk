@@ -451,14 +451,6 @@ function BookThatApp() {
     });
   };
 
-  BTA.getVariants = function(data) {
-    return BTA.makeRequest({
-      url: '/variants',
-      method: 'get',
-      params: data
-    });
-  };
-
   BTA.getFrames = function(data) {
     return BTA.makeRequest({
       url: '/frames/',
