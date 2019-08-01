@@ -459,6 +459,14 @@ function BookThatApp() {
     });
   };
 
+  BTA.getCourseFrames = function(data) {
+    return BTA.makeRequest({
+      url: '/courses/',
+      method: 'get',
+      params: data
+    });
+  };
+
   BTA.getBlocks = function(data) {
     return BTA.makeRequest({
       url: '/blocks',
