@@ -7,9 +7,51 @@
  * Copyright 2017 Zetya, Inc.
  */
 
-import axios from 'axios'
-import base64 from 'base-64'
+import axios from 'axios';
+import base64 from 'base-64';
 
+/**
+ * Root Object that holds methods to expose for API consumption
+ * @typedef {{
+ * init: (t:string, config?:Object) => TBTA,
+ * makeRequest: Function,
+ * configure: Function,
+ * getConfig: Function,
+ * headers: Function,
+ * auth: Function,
+ * setToken: Function,
+ * getShop: Function,
+ * getReservations: Function
+ * ,getReservation: Function,
+ * createReservation: Function,
+ * confirmReservation: Function,
+ * updateReservation: Function,
+ * deleteReservation: Function,
+ * getBookings: Function,
+ * getBooking: Function,
+ * createBooking: Function,
+ * updateBooking: Function,
+ * deleteBooking: Function,
+ * getBlackouts: Function,
+ * getBlackout: Function,
+ * createBlackout: Function,
+ * updateBlackout: Function,
+ * deleteBlackout: Function,
+ * getProducts: Function,
+ * getProduct: Function,
+ * getFrames: Function,
+ * getCourseFrames: Function,
+ * getBlocks: Function,
+ * search: Function,
+ * getLocationInventories: Function,
+ * updateLocationInventories: Function,
+ * getLocations: Function}} TBTA
+ */
+
+/**
+ * BookThatApp SDK
+ * @return {TBTA}
+ */
 function BookThatApp() {
   /**
    * Auth variables for login gated API methods
@@ -27,7 +69,7 @@ function BookThatApp() {
    */
   var config = {
     apiBaseUrl: 'https://api.bookthatapp.com/',
-    apiVersion: 'v1'
+    apiVersion: 'v1',
   };
 
   /**
@@ -36,24 +78,22 @@ function BookThatApp() {
    * @type {Function}
    * @return {String}
    */
-  var makeUrl = function(endpoint) {
+  var makeUrl = function (endpoint) {
     return [config.apiBaseUrl, config.apiVersion, endpoint].join('');
   };
 
   /**
-   * Root Object that holds methods to expose for API consumption
-   *
-   * @type {Object}
+   * @type {TBTA}
    */
   var BTA = {};
 
   /**
    * Initialize library with a token
    *
-   * @type {Object}
-   * @return {Promise}
+   * @type {TBTA['init']}
+   * @return {TBTA}
    */
-  BTA.init = function(t, config) {
+  BTA.init = function (t, config) {
     token = t;
     BTA.configure(config);
     return BTA;
@@ -65,7 +105,7 @@ function BookThatApp() {
    * @type {Object}
    * @return {Promise}
    */
-  BTA.makeRequest = function(args) {
+  BTA.makeRequest = function (args) {
     // construct URL with base, version and endpoint
     args.url = makeUrl(args.url);
 
@@ -84,14 +124,17 @@ function BookThatApp() {
     }
 
     // register response interceptor for data manipulation
-    var interceptor = axios.interceptors.response.use(function(response) {
-      if (response.data && response.data.data) {
-        response.data = response.data.data;
+    var interceptor = axios.interceptors.response.use(
+      function (response) {
+        if (response.data && response.data.data) {
+          response.data = response.data.data;
+        }
+        return response;
+      },
+      function (error) {
+        return Promise.reject(error);
       }
-      return response;
-    }, function(error) {
-      return Promise.reject(error);
-    });
+    );
 
     // execute request!
     var request = axios(args);
@@ -108,7 +151,7 @@ function BookThatApp() {
    * @type {Function}
    * @return {Object}
    */
-  BTA.configure = function(custom) {
+  BTA.configure = function (custom) {
     for (var attr in custom) {
       config[attr] = custom[attr];
     }
@@ -122,7 +165,7 @@ function BookThatApp() {
    * @type {Function}
    * @return {Object}
    */
-  BTA.getConfig = function() {
+  BTA.getConfig = function () {
     return config;
   };
 
@@ -132,7 +175,7 @@ function BookThatApp() {
    * @type {Function}
    * @return {Object}
    */
-  BTA.headers = function(data) {
+  BTA.headers = function (data) {
     for (var attr in data) {
       headers[attr] = data[attr];
     }
@@ -148,17 +191,17 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.auth = function(data) {
+  BTA.auth = function (data) {
     var r = BTA.makeRequest({
       url: '/auth/',
       method: 'post',
-      data: {auth: data}
+      data: { auth: data },
     });
 
-    r.then(function(response) {
+    r.then(function (response) {
       var token = response.data.jwt;
       BTA.setToken(token);
-    }).catch(function(e) {
+    }).catch(function (e) {
       BTA.setToken('');
     });
 
@@ -170,7 +213,7 @@ function BookThatApp() {
    *
    * @type {Function}
    */
-  BTA.setToken = function(jwt) {
+  BTA.setToken = function (jwt) {
     token = jwt;
   };
 
@@ -180,7 +223,7 @@ function BookThatApp() {
    * @type {Function}
    * @return {Object}
    */
-  BTA.getShop = function() {
+  BTA.getShop = function () {
     if (token == '') return '';
 
     var payload = JSON.parse(base64.decode(token.split('.')[1]));
@@ -193,11 +236,11 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.getReservations = function(data) {
+  BTA.getReservations = function (data) {
     return BTA.makeRequest({
       url: '/reservations/',
       method: 'get',
-      params: data
+      params: data,
     });
   };
 
@@ -207,11 +250,11 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.getReservation = function(data) {
+  BTA.getReservation = function (data) {
     return BTA.makeRequest({
       url: '/reservations/' + data.id,
       method: 'get',
-      params: data
+      params: data,
     });
   };
 
@@ -220,11 +263,11 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.createReservation = function(data) {
+  BTA.createReservation = function (data) {
     return BTA.makeRequest({
       url: '/reservations',
       method: 'post',
-      data: data
+      data: data,
     });
   };
 
@@ -234,11 +277,11 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.confirmReservation = function(data) {
+  BTA.confirmReservation = function (data) {
     return BTA.makeRequest({
       url: '/reservations/' + data.id + '/confirm',
       method: 'put',
-      data: data
+      data: data,
     });
   };
 
@@ -248,14 +291,14 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.updateReservation = function(data) {
+  BTA.updateReservation = function (data) {
     var slug = data.id;
     delete data.id;
 
     return BTA.makeRequest({
       url: '/reservations/' + slug,
       method: 'put',
-      data: data
+      data: data,
     });
   };
 
@@ -265,13 +308,13 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.deleteReservation = function(data) {
+  BTA.deleteReservation = function (data) {
     var slug = data.id;
     delete data.id;
 
     return BTA.makeRequest({
       url: '/reservations/' + slug,
-      method: 'delete'
+      method: 'delete',
     });
   };
 
@@ -281,11 +324,11 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.getBookings = function(data) {
+  BTA.getBookings = function (data) {
     return BTA.makeRequest({
       url: '/bookings/',
       method: 'get',
-      params: data
+      params: data,
     });
   };
 
@@ -295,11 +338,11 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.getBooking = function(data) {
+  BTA.getBooking = function (data) {
     return BTA.makeRequest({
       url: '/bookings/' + data.id,
       method: 'get',
-      params: data
+      params: data,
     });
   };
 
@@ -308,11 +351,11 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.createBooking = function(data) {
+  BTA.createBooking = function (data) {
     return BTA.makeRequest({
       url: '/bookings',
       method: 'post',
-      data: data
+      data: data,
     });
   };
 
@@ -322,14 +365,14 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.updateBooking = function(data) {
+  BTA.updateBooking = function (data) {
     var slug = data.id;
     delete data.id;
 
     return BTA.makeRequest({
       url: '/bookings/' + slug,
       method: 'put',
-      data: data
+      data: data,
     });
   };
 
@@ -339,13 +382,13 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.deleteBooking = function(data) {
+  BTA.deleteBooking = function (data) {
     var slug = data.id;
     delete data.id;
 
     return BTA.makeRequest({
       url: '/bookings/' + slug,
-      method: 'delete'
+      method: 'delete',
     });
   };
 
@@ -355,11 +398,11 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.getBlackouts = function(data) {
+  BTA.getBlackouts = function (data) {
     return BTA.makeRequest({
       url: '/blackouts',
       method: 'get',
-      params: data
+      params: data,
     });
   };
 
@@ -369,11 +412,11 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.getBlackout = function(data) {
+  BTA.getBlackout = function (data) {
     return BTA.makeRequest({
       url: '/blackouts/' + data.id,
       method: 'get',
-      params: data
+      params: data,
     });
   };
 
@@ -382,11 +425,11 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.createBlackout = function(data) {
+  BTA.createBlackout = function (data) {
     return BTA.makeRequest({
       url: '/blackouts',
       method: 'post',
-      data: data
+      data: data,
     });
   };
 
@@ -396,14 +439,14 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.updateBlackout = function(data) {
+  BTA.updateBlackout = function (data) {
     var slug = data.id;
     delete data.id;
 
     return BTA.makeRequest({
       url: '/blackouts/' + slug,
       method: 'put',
-      data: data
+      data: data,
     });
   };
 
@@ -413,13 +456,13 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.deleteBlackout = function(data) {
+  BTA.deleteBlackout = function (data) {
     var slug = data.id;
     delete data.id;
 
     return BTA.makeRequest({
       url: '/blackouts/' + slug,
-      method: 'delete'
+      method: 'delete',
     });
   };
 
@@ -429,11 +472,11 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.getProducts = function(data) {
+  BTA.getProducts = function (data) {
     return BTA.makeRequest({
       url: '/products',
       method: 'get',
-      params: data
+      params: data,
     });
   };
 
@@ -443,69 +486,74 @@ function BookThatApp() {
    * @type {Function}
    * @return {Promise}
    */
-  BTA.getProduct = function(data) {
+  BTA.getProduct = function (data) {
     return BTA.makeRequest({
       url: '/products/' + data.id,
       method: 'get',
-      params: data
+      params: data,
     });
   };
 
-  BTA.getFrames = function(data) {
+  BTA.getFrames = function (data) {
     return BTA.makeRequest({
       url: '/frames/',
       method: 'get',
-      params: data
+      params: data,
     });
   };
 
-  BTA.getCourseFrames = function(data) {
+  BTA.getCourseFrames = function (data) {
     return BTA.makeRequest({
       url: '/courses/',
       method: 'get',
-      params: data
+      params: data,
     });
   };
 
-  BTA.getBlocks = function(data) {
+  BTA.getBlocks = function (data) {
     return BTA.makeRequest({
       url: '/blocks',
       method: 'get',
-      params: data
+      params: data,
     });
-  }
+  };
 
-  BTA.search = function(data) {
+  BTA.search = function (data) {
     return BTA.makeRequest({
       url: '/search/',
       method: 'get',
-      params: data
+      params: data,
     });
-  }
+  };
 
-  BTA.getLocationInventories = function(data) {
+  BTA.getLocationInventories = function (data) {
     return BTA.makeRequest({
       url: `/location_inventories`,
       method: 'get',
-      params: data
+      params: data,
     });
   };
 
-  BTA.updateLocationInventories = function(data) {
+  BTA.updateLocationInventories = function (data) {
     return BTA.makeRequest({
       url: '/location_inventories',
       method: 'put',
-      data: data
+      data: data,
     });
   };
 
-  BTA.getLocations = function() {
+  BTA.getLocations = function () {
     return BTA.makeRequest({
-      url: '/locations'
+      url: '/locations',
     });
   };
 
   return BTA;
 }
 
-export default new BookThatApp();
+/**
+ * @type {TBTA}
+ */
+const bookthatapp = new BookThatApp();
+
+export default bookthatapp;

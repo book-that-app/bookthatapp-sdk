@@ -1,0 +1,9 @@
+/*!
+ * BookThatApp JavaScript SDK
+ * Version: 1.0
+ * http://www.bookthatapp.com
+ *
+ * Copyright 2017 Zetya, Inc.
+ */
+
+/*! https://mths.be/base64 v1.0.0 by @mathias | MIT license */

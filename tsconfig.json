@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "target": "es6",
+    "module": "es6",
+    "outDir": "./dist/types"
+  },
+  "include": ["src/**/*.js"],
+  "exclude": ["node_modules"]
+}
