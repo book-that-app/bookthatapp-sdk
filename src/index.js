@@ -11,6 +11,17 @@ import axios from 'axios';
 import base64 from 'base-64';
 
 /**
+ * @typedef {{
+ * external_id: number
+ * start: string
+ * finish: string
+ * resource_ids?: number[]
+ * location_ids?: number[]
+ * interval?: number
+ * }} TGetBlocks
+ */
+
+/**
  * Root Object that holds methods to expose for API consumption
  * @typedef {{
  * init: (t:string, config?:Object) => TBTA,
@@ -41,7 +52,7 @@ import base64 from 'base-64';
  * getProduct: Function,
  * getFrames: Function,
  * getCourseFrames: Function,
- * getBlocks: Function,
+ * getBlocks: (data: TGetBlocks) => Promise<any>,
  * search: Function,
  * getLocationInventories: Function,
  * updateLocationInventories: Function,

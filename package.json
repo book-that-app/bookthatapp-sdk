@@ -1,6 +1,6 @@
 {
   "name": "bookthatapp-sdk",
-  "version": "1.3.01",
+  "version": "1.3.02",
   "description": "The SDK is intended to be used by customers to access BookThatApp from the browser or node.",
   "main": "src/index.js",
   "types": "dist/types/index.d.ts",

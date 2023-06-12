@@ -1,4 +1,12 @@
 export default bookthatapp;
+export type TGetBlocks = {
+    external_id: number;
+    start: string;
+    finish: string;
+    resource_ids?: number[];
+    location_ids?: number[];
+    interval?: number;
+};
 /**
  * Root Object that holds methods to expose for API consumption
  */
@@ -31,7 +39,7 @@ export type TBTA = {
     getProduct: Function;
     getFrames: Function;
     getCourseFrames: Function;
-    getBlocks: Function;
+    getBlocks: (data: TGetBlocks) => Promise<any>;
     search: Function;
     getLocationInventories: Function;
     updateLocationInventories: Function;
