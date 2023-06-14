@@ -7,6 +7,10 @@ export type TGetBlocks = {
     location_ids?: number[];
     interval?: number;
 };
+export type TGetReservation = (data: {
+    [x: string]: any;
+    id: number;
+}) => Promise<any>;
 /**
  * Root Object that holds methods to expose for API consumption
  */
@@ -20,7 +24,7 @@ export type TBTA = {
     setToken: Function;
     getShop: Function;
     getReservations: Function;
-    getReservation: Function;
+    getReservation: TGetReservation;
     createReservation: Function;
     confirmReservation: Function;
     updateReservation: Function;

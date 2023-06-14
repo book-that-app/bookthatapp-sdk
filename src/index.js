@@ -22,6 +22,10 @@ import base64 from 'base-64';
  */
 
 /**
+ * @typedef {(data: { id: number, [x: string]: any }) => Promise<any>} TGetReservation
+ */
+
+/**
  * Root Object that holds methods to expose for API consumption
  * @typedef {{
  * init: (t:string, config?:Object) => TBTA,
@@ -32,8 +36,8 @@ import base64 from 'base-64';
  * auth: Function,
  * setToken: Function,
  * getShop: Function,
- * getReservations: Function
- * ,getReservation: Function,
+ * getReservations: Function,
+ * getReservation: TGetReservation,
  * createReservation: Function,
  * confirmReservation: Function,
  * updateReservation: Function,
@@ -255,12 +259,6 @@ function BookThatApp() {
     });
   };
 
-  /**
-   * Get specific reservation
-   *
-   * @type {Function}
-   * @return {Promise}
-   */
   BTA.getReservation = function (data) {
     return BTA.makeRequest({
       url: '/reservations/' + data.id,
