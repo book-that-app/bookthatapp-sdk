@@ -9,62 +9,7 @@
 
 import axios from 'axios';
 import base64 from 'base-64';
-
-/**
- * @typedef {{
- * external_id: number
- * start: string
- * finish: string
- * resource_ids?: number[]
- * location_ids?: number[]
- * interval?: number
- * }} TGetBlocks
- */
-
-/**
- * @typedef {(data: { id: number, [x: string]: any }) => Promise<any>} TGetReservation
- */
-
-/**
- * Root Object that holds methods to expose for API consumption
- * @typedef {{
- * init: (t:string, config?:Object) => TBTA,
- * makeRequest: Function,
- * configure: Function,
- * getConfig: Function,
- * headers: Function,
- * auth: Function,
- * setToken: Function,
- * getShop: Function,
- * getReservations: Function,
- * getReservation: TGetReservation,
- * createReservation: Function,
- * confirmReservation: Function,
- * updateReservation: Function,
- * deleteReservation: Function,
- * getBookings: Function,
- * getBooking: Function,
- * createBooking: Function,
- * updateBooking: Function,
- * deleteBooking: Function,
- * getBlackouts: Function,
- * getBlackout: Function,
- * createBlackout: Function,
- * updateBlackout: Function,
- * deleteBlackout: Function,
- * getProducts: Function,
- * getProduct: Function,
- * getFrames: Function,
- * getCourseFrames: Function,
- * getBlocks: (data: TGetBlocks) => Promise<any>,
- * search: Function,
- * getLocationInventories: Function,
- * updateLocationInventories: Function,
- * getLocations: Function,
- * getCustomers: (data: { [x: string]: any }) => Promise<any>,
- * getCustomer: (data: { id: number, [x: string]: any }) => Promise<any>,
- * }} TBTA
- */
+import {TBTA} from './types';
 
 /**
  * BookThatApp SDK
@@ -270,11 +215,6 @@ function BookThatApp() {
     });
   };
 
-  /**
-   * Create a new reservation
-   * @type {Function}
-   * @return {Promise}
-   */
   BTA.createReservation = function (data) {
     return BTA.makeRequest({
       url: '/reservations',
@@ -573,6 +513,14 @@ function BookThatApp() {
       url: '/customers/' + data.id,
       method: 'get',
       params: data,
+    });
+  };
+
+  BTA.createCustomer = function (data) {
+    return BTA.makeRequest({
+      url: '/customers',
+      method: 'post',
+      data,
     });
   };
 
