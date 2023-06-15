@@ -48,6 +48,13 @@ export type TBTA = {
     getLocationInventories: Function;
     updateLocationInventories: Function;
     getLocations: Function;
+    getCustomers: (data: {
+        [x: string]: any;
+    }) => Promise<any>;
+    getCustomer: (data: {
+        [x: string]: any;
+        id: number;
+    }) => Promise<any>;
 };
 /**
  * @type {TBTA}

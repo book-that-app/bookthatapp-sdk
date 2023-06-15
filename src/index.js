@@ -60,7 +60,10 @@ import base64 from 'base-64';
  * search: Function,
  * getLocationInventories: Function,
  * updateLocationInventories: Function,
- * getLocations: Function}} TBTA
+ * getLocations: Function,
+ * getCustomers: (data: { [x: string]: any }) => Promise<any>,
+ * getCustomer: (data: { id: number, [x: string]: any }) => Promise<any>,
+ * }} TBTA
  */
 
 /**
@@ -554,6 +557,22 @@ function BookThatApp() {
   BTA.getLocations = function () {
     return BTA.makeRequest({
       url: '/locations',
+    });
+  };
+
+  BTA.getCustomers = function (data) {
+    return BTA.makeRequest({
+      url: '/customers',
+      method: 'get',
+      params: data,
+    });
+  };
+
+  BTA.getCustomer = function (data) {
+    return BTA.makeRequest({
+      url: '/customers/' + data.id,
+      method: 'get',
+      params: data,
     });
   };
 
